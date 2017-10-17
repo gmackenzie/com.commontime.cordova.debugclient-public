@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin id="com.commontime.cordova.debugclient-public" version="0.0.6"
+    xmlns="http://www.phonegap.com/ns/plugins/1.0">
+
+    <name>Debug Client Plugin</name>
+
+    <js-module name="DebugClient" src="www/debugclient.js">
+        <clobbers target="plugins.debugclient" />
+    </js-module>
+
+    <preference name="DEBUG_CONNECTION" default="192.168.1.108:3000" />
+
+    <platform name="android">
+
+        <config-file parent="/*" target="config.xml">
+            <feature name="DebugClient">
+                <param name="android-package"
+                    value="com.commontime.cordova.plugins.debugclient.DebugClient" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <framework custom="true" src="gradle/build-extras.gradle" type="gradleReference" />
+        <resource-file src="aar/debugclient.aar" target="aar/debugclient.aar" />
+
+    </platform>
+
+</plugin>

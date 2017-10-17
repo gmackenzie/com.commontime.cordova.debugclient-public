@@ -1,0 +1,27 @@
+android {
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+    }
+}
+
+repositories {    
+  jcenter()
+  mavenCentral()
+  flatDir{
+    dirs 'aar'
+  }
+}
+
+dependencies {
+   compile(name:'debugclient', ext:'aar')
+   compile 'commons-io:commons-io:2.5'
+   compile 'com.squareup.okhttp3:okhttp:3.6.0'
+   compile 'com.neovisionaries:nv-websocket-client:1.31'
+}
